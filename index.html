@@ -246,10 +246,10 @@ src="https://www.facebook.com/tr?id=3096469013877654&ev=PageView&noscript=1"
   footer .disc{font-size:12px;color:#5E6B82;max-width:70ch;margin:18px auto 0;line-height:1.6}
 
   /* STICKY */
-  .sticky{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;background:rgba(10,17,31,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line-strong);padding:12px 16px;align-items:center;justify-content:space-between;gap:12px}
+  .sticky{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;background:rgba(10,17,31,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line-strong);padding:12px 16px;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;cursor:pointer}
   .sticky b{font-family:'Fraunces',serif;color:var(--gold);font-size:20px}
   .sticky small{display:block;font-size:11px;color:var(--muted)}
-  .sticky a{background:var(--gold);color:#1A1305;font-weight:800;text-decoration:none;padding:13px 20px;border-radius:11px;font-size:15px;white-space:nowrap}
+  .sticky .sticky-cta{background:var(--gold);color:#1A1305;font-weight:800;text-decoration:none;padding:13px 20px;border-radius:11px;font-size:15px;white-space:nowrap;pointer-events:none}
 
   /* REVEAL */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
@@ -479,10 +479,10 @@ src="https://www.facebook.com/tr?id=3096469013877654&ev=PageView&noscript=1"
   </div>
 </footer>
 
-<div class="sticky">
+<a class="sticky" href="https://pay.kiwify.com.br/6dIgCI2" aria-label="Garantir acesso ao Guia Rota USA por R$ 27,00">
   <div><b>R$ 27,00</b><small>Guia completo · acesso imediato</small></div>
-  <a href="https://pay.kiwify.com.br/6dIgCI2">Garantir acesso →</a>
-</div>
+  <span class="sticky-cta">Garantir acesso →</span>
+</a>
 
 <script>
   /* Reveal on scroll - Otimizado com requestAnimationFrame */
@@ -506,6 +506,33 @@ window.addEventListener('load', function() {
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "xmkmjjakc9");
 });
+</script>
+
+<!-- Kiwify UTM Tracking -->
+<script>
+    let prefix = ["https://pay.kiwify.com.br"];
+function getParams() {
+    let t = "",
+        e = window.top.location.href,
+        r = new URL(e);
+    if (null != r) {
+        let a = r.searchParams.get("utm_source"),
+            n = r.searchParams.get("utm_medium"),
+            o = r.searchParams.get("utm_campaign"),
+            m = r.searchParams.get("utm_term"),
+            c = r.searchParams.get("utm_content");
+        if (e.indexOf("?") !== -1) {
+            t = "&sck=" + a + "|" + n + "|" + o + "|" + m + "|" + c;
+        }
+    }
+    return t
+}
+!function() {
+    var t = new URLSearchParams(window.location.search);
+    t.toString() && document.querySelectorAll("a").forEach(function(e) {
+        for (let r = 0; r < prefix.length; r++) -1 !== e.href.indexOf(prefix[r]) && (-1 === e.href.indexOf("?") ? e.href += "?" + t.toString() + getParams() : e.href += "&" + t.toString() + getParams())
+    })
+}();
 </script>
 
 </body>
